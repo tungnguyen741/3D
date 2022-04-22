@@ -13,7 +13,7 @@ const MainService: React.FC = () => {
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(1234567910111213);
+    renderer.setClearColor(12345679101112135);
     document.body.appendChild(renderer.domElement);
 
     const geometry = new THREE.BoxGeometry();
