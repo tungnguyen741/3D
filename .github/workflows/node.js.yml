@@ -33,12 +33,12 @@ jobs:
 
       - name: Deploy
         run: |
-          git config --global user.name $user_name
-          git config --global user.email $user_email
-          git remote set-url origin https://${user_name}:${github_token}@github.com/${repository}
+          git config --global user.name tungnguyen741
+          git config --global user.email tung.nguyen21098@gmail.com
+          git remote set-url origin https://tungnguyen741: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@github.com/tungnguyen741/3D.git
           npm run deploy
         env:
           user_name: "tungnguyen741"
           user_email: "tung.nguyen21098@gmail.com"
-          github_token: "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"
+          github_token: "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"
           repository: "tungnguyen741/3D.git"
