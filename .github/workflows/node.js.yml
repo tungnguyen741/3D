@@ -40,5 +40,5 @@ jobs:
         env:
           user_name: "tungnguyen741"
           user_email: "tung.nguyen21098@gmail.com"
-          github_token: ${{ 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 }}
-          repository: ${{ 3D }}
+          github_token: "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"
+          repository: "3D"
