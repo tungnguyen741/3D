@@ -40,5 +40,5 @@ jobs:
         env:
           user_name: "tungnguyen741"
           user_email: "tung.nguyen21098@gmail.com"
-          github_token: "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"
-          repository: "tungnguyen741/3D"
+          github_token: "tungnguyen741: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"
+          repository: "tungnguyen741/3D.git"
