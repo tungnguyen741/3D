@@ -35,10 +35,10 @@ jobs:
         run: |
           git config --global user.name tungnguyen741
           git config --global user.email tung.nguyen21098@gmail.com
-          git remote set-url origin https://${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}@github.com/3D
+          git remote set-url origin https://${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}@github.com/3D
           npm run deploy
         env:
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
-          github_token: ${{ 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 }}
-          repository: ${{ github.repository }}
+          github_token: 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
+          repository: 3D
