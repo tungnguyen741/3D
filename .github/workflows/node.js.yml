@@ -32,7 +32,8 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        run: git config --global user.name tungnguyen741
+        run: |
+          git config --global user.name tungnguyen741
           git config --global user.email tung.nguyen21098@gmail.com
           git remote set-url origin https://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@github.com/3D
           npm run deploy
