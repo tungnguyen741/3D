@@ -1,7 +1,7 @@
 {
   "name": "thrd-app",
   "version": "0.0.1",
-  "homepage": "https://tungnguyen741.github.io/3D",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@react-three/fiber": "^8.0.12",
