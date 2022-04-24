@@ -1,0 +1,22 @@
+.BlockFree {
+  transition: all 0.1s;
+  width: 40px;
+  height: 40px;
+  background: rgba(216, 143, 9, 0.5);
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+
+  cursor: grab;
+  position: absolute;
+  z-index: 100;
+  &:active {
+    cursor: -webkit-grabbing;
+    opacity: 1;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}

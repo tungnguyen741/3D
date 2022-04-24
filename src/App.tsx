@@ -1,10 +1,13 @@
 import { Canvas } from "@react-three/fiber";
 import * as React from "react";
+import { useState } from "react";
+import BlockFree from "src/components/BlockFree";
 import Box from "src/components/Box";
 import "./App.css";
 
 const App = () => {
-  return (
+  const [isDisplay, setIsDisplay] = useState(false);
+  const Draw = () => (
     <Canvas resize={{ scroll: true, offsetSize: true }}>
       <ambientLight intensity={1} />
       <spotLight position={[10, 10, 10]} angle={2} penumbra={1} />
@@ -42,8 +45,14 @@ const App = () => {
       <Box position={[-1, 5.5, -3]} scale={1} />
       <Box position={[0.35, 5.25, -3]} scale={1} />
       <Box position={[1.7, 4.85, -3]} scale={1} />
-      {/* <Box position={[0.45, 4, -3]} scale={1} /> */}
     </Canvas>
+  );
+  return (
+    <>
+      <BlockFree isDisplay={isDisplay} onClick={() => setIsDisplay(!isDisplay)}>
+        <Draw />
+      </BlockFree>
+    </>
   );
 };
 
