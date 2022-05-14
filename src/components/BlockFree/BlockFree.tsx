@@ -5,7 +5,6 @@ import {
   squareImg,
   dinosaurImg,
   chickenRunImg,
-  dogBallImg,
   dogRunImg,
   walkerImg,
   ballonImg,
@@ -15,6 +14,7 @@ import {
   dogHopImg,
   passengerImg,
   pandaImg,
+  gilunImg,
 } from "./images";
 
 import {
@@ -40,7 +40,6 @@ const listCustomRand = [
   squareImg,
   dinosaurImg,
   chickenRunImg,
-  dogBallImg,
   dogRunImg,
   walkerImg,
   ballonImg,
@@ -50,6 +49,7 @@ const listCustomRand = [
   dogHopImg,
   passengerImg,
   pandaImg,
+  gilunImg,
 ];
 
 const BlockFree: React.FC<IBlockFree> = ({

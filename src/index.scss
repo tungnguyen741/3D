@@ -11,6 +11,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  touch-action: none !important;
+  overflow-y: hidden;
+  overscroll-behavior: contain;
 }
 
 code {
