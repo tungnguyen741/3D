@@ -1,0 +1,42 @@
+.btn{
+    width: 100px;
+    padding: 5px 15px;
+    margin:15px;
+    cursor: pointer;
+    border:2px solid;
+
+
+    &__square{
+        background:#CE9461
+    }
+    &__circle{
+        width: 65px;
+        height: 65px;
+        text-align: center;
+        border-radius: 50%;
+        background:#DEA057
+        
+    }
+    &__custom{
+        background:#FCFFE7
+    }
+}
+
+.input{
+    display: inline-block;
+    background:#E0D8B0;
+    margin-left: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    input{
+        margin-left: 10px;
+        padding: 5px 15px;
+        &:focus{
+            outline: none
+        }
+    }
+    label{
+        display: inline-block;
+        margin-right: 5px;
+    }
+}

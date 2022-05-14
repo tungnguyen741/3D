@@ -2,7 +2,6 @@
   "name": "thrd-app",
   "version": "0.0.1",
   "homepage": ".",
-  "private": true,
   "dependencies": {
     "@react-three/fiber": "^8.0.12",
     "@testing-library/jest-dom": "^5.16.4",
@@ -23,10 +22,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "push": "git push && gh-pages -d build"
@@ -50,6 +49,9 @@
     ]
   },
   "devDependencies": {
-    "@types/three": "^0.139.0"
+    "@types/three": "^0.139.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.2.1"
   }
 }
