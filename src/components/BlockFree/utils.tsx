@@ -28,7 +28,9 @@ export const setElmRefTranslate: TTranslateElm = (x, y, blockRef) => {
   if (!tempX.includes("px")) tempX = changeToPx(tempX);
   if (!tempY.includes("px")) tempY = changeToPx(tempY);
 
-  blockRef.current.style.transform = `translate(${tempX}, ${tempY})`;
+  blockRef.current.style.transform = `translate3d(${tempX}, ${tempY}, 0)`;
+  blockRef.current.style.touchAction = "none";
+  blockRef.current.style.userSelect = "none";
 };
 
 const getElmRef =
@@ -41,8 +43,11 @@ export const getClientElm = (
 ) => {
   const isTouchEvent = e instanceof TouchEvent;
   const isMouseEvent = e instanceof MouseEvent;
+  console.log("isTouchEvent:", isTouchEvent);
+  console.log("isMouseEvent:", isMouseEvent);
   if (isTouchEvent) return e.touches[0][eventName];
   if (isMouseEvent) return e[eventName];
+
   return 0;
 };
 

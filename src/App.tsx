@@ -4,7 +4,7 @@ import styles from "./App.module.scss";
 import { TShape } from "./components/BlockFree/utils";
 
 const App = () => {
-  const [isDisplay, setIsDisplay] = useState(true);
+  const [isDisplay, setIsDisplay] = useState(false);
   const [shape, setShape] = useState<TShape>("circle");
   const [size, setSize] = useState(40);
 
