@@ -1,4 +1,4 @@
-$transition-ms: 0.04s;
+$transition-ms: 0s;
 $html-width-default: 375 !default;
  
  @keyframes appear {
@@ -19,9 +19,38 @@ $html-width-default: 375 !default;
     top: var(--pos-x-top);
     left: var(--pos-x-left);
     transform: scale(0);
+  } 
+  5%{
+    transform: scale(0.1);
+ }
+  10%{
+    transform: scale(0.25);
+ }
+  20%{
+    transform: scale(0.25);
+ }
+  50%{
+    transform: scale(0.5);
+ }
+  60%{
+    transform: scale(0.6);
+ }
+  70%{
+    transform: scale(0.75);
+ }
+  80%{
+    transform: scale(0.8);
+ }
+  90%{
+    transform: scale(0.9);
+ }
+  95%{
+    transform: scale(0.95);
+ }
+  99%{
+    transform: scale(0.99);
  }
  100%{
-
     transform: scale(1);
   }
 }
@@ -77,15 +106,26 @@ $html-width-default: 375 !default;
   z-index: 99999;
   min-width: 30vw;
   min-height: 30vw;
-  border-radius: 25px;
-  background: #bfbfbf;
+  border-radius: 10px;
+  background: rgba(44,38,38,.85);
+
+  margin-top: calc(30vw / -2);
+  margin-left: calc(30vw / -2);
 
   transition: all 0.5s;
-  top: 35%;
-  left:35%;
 
+  top:50%;
+  left:50%;
   display:flex;align-items:center;
   justify-content:center;
+  animation: appearBox 0.15s linear;
+}
 
-  animation: appearBox 0.25s linear;
+.overlay{
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

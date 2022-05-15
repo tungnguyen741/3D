@@ -1,20 +1,9 @@
-declare global {
-  var REMAIN_CENTER_PX: number;
-  var WIDTH: number;
-}
-
-export type TBlockEvent = React.MouseEvent | React.TouchEvent;
-export type TShape = "circle" | "square" | number;
-type TPositionMouse = number | string;
-type TBlockRef = React.RefObject<HTMLDivElement> | { current: "" };
-type TTranslateElm = (
-  x: TPositionMouse,
-  y: TPositionMouse,
-  blockRef?: TBlockRef
-) => any;
-
-// GOLD NUMBER
-export const RATIO_CENTER_BLOCK = 1.6180339877;
+import {
+  RATIO_CENTER_BLOCK,
+  TBlockRef,
+  TPositionMouse,
+  TTranslateElm,
+} from "./types";
 
 export const changeToPx = (num: number | string) => `${num}px`;
 export const setElmRefTranslate: TTranslateElm = (x, y, blockRef) => {
@@ -43,8 +32,7 @@ export const getClientElm = (
 ) => {
   const isTouchEvent = e instanceof TouchEvent;
   const isMouseEvent = e instanceof MouseEvent;
-  console.log("isTouchEvent:", isTouchEvent);
-  console.log("isMouseEvent:", isMouseEvent);
+
   if (isTouchEvent) return e.touches[0][eventName];
   if (isMouseEvent) return e[eventName];
 
@@ -61,9 +49,9 @@ export const setBlockPosition: TTranslateElm = (
   const DEFAULT_MAX =
     -(globalThis.WIDTH / globalThis.REMAIN_CENTER_PX) - RATIO_CENTER_BLOCK * 3;
   const SCREEN_MAX_HEIGHT =
-    window.innerHeight - globalThis.REMAIN_CENTER_PX * RATIO_CENTER_BLOCK - 10;
+    window.innerHeight - globalThis.REMAIN_CENTER_PX * RATIO_CENTER_BLOCK;
   const SCREEN_MAX_WIDTH =
-    window.innerWidth - globalThis.REMAIN_CENTER_PX * RATIO_CENTER_BLOCK - 10;
+    window.innerWidth - globalThis.REMAIN_CENTER_PX * RATIO_CENTER_BLOCK;
 
   const TOP = posMouseY <= 0;
   const LEFT = posMouseX <= 0;

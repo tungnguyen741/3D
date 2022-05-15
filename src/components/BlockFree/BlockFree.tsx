@@ -1,31 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./index.module.scss";
-import {
-  circleImg,
-  squareImg,
-  dinosaurImg,
-  chickenRunImg,
-  dogRunImg,
-  walkerImg,
-  ballonImg,
-  rocketImg,
-  settingImg,
-  yellowImg,
-  dogHopImg,
-  passengerImg,
-  pandaImg,
-  gilunImg,
-} from "./images";
+import styles from "./BlockFree.module.scss";
 
-import {
-  changeToPx,
-  getClientElm,
-  RATIO_CENTER_BLOCK,
-  setBlockPosition,
-  TBlockEvent,
-  TShape,
-} from "./utils";
+import { changeToPx, getClientElm, setBlockPosition } from "./utils";
 import ReactDOM from "react-dom";
+import { circleImg, squareImg } from "./images";
+import { listCustomRand } from "./static";
+import { RATIO_CENTER_BLOCK, TBlockEvent, TShape } from "./types";
 
 interface IBlockFree {
   isDisplay: boolean;
@@ -35,23 +15,8 @@ interface IBlockFree {
   height?: number;
   style?: React.CSSProperties;
   shape?: TShape;
+  onClose?: () => void;
 }
-const listCustomRand = [
-  circleImg,
-  squareImg,
-  dinosaurImg,
-  chickenRunImg,
-  dogRunImg,
-  walkerImg,
-  ballonImg,
-  rocketImg,
-  settingImg,
-  yellowImg,
-  dogHopImg,
-  passengerImg,
-  pandaImg,
-  gilunImg,
-];
 
 let clickTime: any;
 let timer: NodeJS.Timeout;
@@ -64,6 +29,7 @@ const BlockFree: React.FC<IBlockFree> = ({
   height = 40,
   style = {},
   shape = "circle",
+  onClose,
 }) => {
   const blockRef = useRef<HTMLDivElement>(null);
   const isDraggedRef = useRef<boolean>(false);
@@ -129,20 +95,14 @@ const BlockFree: React.FC<IBlockFree> = ({
     setBlockPosition(posMouseX, posMouseY, blockRef);
   };
 
-  const handleMUp = (
-    e: React.MouseEvent<HTMLDivElement> | React.TouchEvent
-  ): any => {
-    e.stopPropagation();
+  const handleMUp = () => {
     isDraggedRef.current = false;
     setIsDraggedState(false);
   };
-  const handleMDown = (
-    e: React.MouseEvent<HTMLDivElement> | React.TouchEvent
-  ) => {
+  const handleMDown = () => {
     clickTime = new Date().getTime();
     isDraggedRef.current = true;
     setIsDraggedState(true);
-    e.stopPropagation();
   };
   const handleMMove = (e: TBlockEvent) => {
     if (isDraggedRef.current) blockFly(e);
@@ -150,13 +110,12 @@ const BlockFree: React.FC<IBlockFree> = ({
   const handleClick = (e: any) => {
     setPosMouseX(e.clientX);
     setPosMouseY(e.clientY);
-    if (new Date().getTime() - clickTime < 150) {
-      console.log("CLICKED", e);
-      if (!isDraggedRef.current && onClick) {
-        onClick();
-      }
-      // click
-    }
+    if (
+      new Date().getTime() - clickTime < 150 &&
+      !isDraggedRef.current &&
+      onClick
+    )
+      onClick();
   };
 
   return ReactDOM.createPortal(
@@ -178,21 +137,20 @@ const BlockFree: React.FC<IBlockFree> = ({
         style={{ ...Style }}
       ></div>
       {isDisplay && (
-        <span
-          className={`${styles.noSelect} ${styles.children}`}
-          style={
-            {
-              "--pos-x-top": changeToPx(
-                posMouseY - globalThis.REMAIN_CENTER_PX * RATIO_CENTER_BLOCK
-              ),
-              "--pos-x-left": changeToPx(
-                posMouseX - globalThis.REMAIN_CENTER_PX * RATIO_CENTER_BLOCK
-              ),
-            } as React.CSSProperties
-          }
-        >
-          children
-        </span>
+        <>
+          <div className={styles.overlay} onClick={onClose && onClose}></div>
+          <span
+            className={`${styles.noSelect} ${styles.children}`}
+            style={
+              {
+                "--pos-x-top": changeToPx(posMouseY),
+                "--pos-x-left": changeToPx(posMouseX),
+              } as React.CSSProperties
+            }
+          >
+            {children}
+          </span>
+        </>
       )}
     </>,
 

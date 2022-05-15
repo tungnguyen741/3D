@@ -1,7 +1,7 @@
 import BlockFree from "@/components/BlockFree";
+import { TShape } from "@/components/BlockFree/types";
 import { useState } from "react";
 import styles from "./App.module.scss";
-import { TShape } from "./components/BlockFree/utils";
 
 const App = () => {
   const [isDisplay, setIsDisplay] = useState(false);
@@ -34,13 +34,13 @@ const App = () => {
       </div>
       <BlockFree
         onClick={() => setIsDisplay(!isDisplay)}
+        onClose={() => setIsDisplay(false)}
         isDisplay={isDisplay}
         width={size}
         height={size}
         shape={shape}
-      >
-        CONTENT
-      </BlockFree>
+        children={""}
+      ></BlockFree>
     </>
   );
 };
