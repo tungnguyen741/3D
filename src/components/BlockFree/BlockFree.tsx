@@ -51,6 +51,7 @@ const BlockFree: React.FC<IBlockFree> = ({
     height,
     borderRadius: shape === "circle" ? "50%" : "",
     backgroundImage: `url(${getUrlImg()})`,
+    touchAction: "none",
   };
 
   useEffect(() => {
