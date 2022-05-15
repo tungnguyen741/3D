@@ -104,13 +104,13 @@ $html-width-default: 375 !default;
 .children{
   position: fixed;
   z-index: 99999;
-  min-width: 30vw;
-  min-height: 30vw;
+  min-width: 60vw;
+  min-height: 60vw;
   border-radius: 10px;
   background: rgba(44,38,38,.85);
 
-  margin-top: calc(30vw / -2);
-  margin-left: calc(30vw / -2);
+  margin-top: calc(60vw / -2);
+  margin-left: calc(60vw / -2);
 
   transition: all 0.5s;
 
